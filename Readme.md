@@ -6,6 +6,18 @@ A repo to reflect on the Travis CI environment.
 I'm sure they say these things in their docs, but I've looked for 20 min,
 and it seems easier at this point to just make some scripts that print the relevant info.
 
+User
+----
+
+`whoami` returns `travis` I don't know that you can rely on this,
+seem to recall reading something that said you shouldn't.
+
+Working directory
+-----------------
+
+`pwd` returns `/home/travis/build/JoshCheek/travis-environment`,
+in this case, that's `/home/travis/build/<GITHUB-USERNAME>/<PROJECT-NAME>`
+
 Environment variables
 ---------------------
 
@@ -88,15 +100,3 @@ You can use this , for example, to generate the URL to that job, eg
 `TRAVIS_COMMIT_RANGE` I assume tells you the range from the SHA that it last pulled/ran.
 Eg `660d49e2db61...870193e48ada`, you could use this to identify the changes that were
 added between the previous successful run, and the current failing run (eg `git log 660d49e2db61...870193e48ada`)
-
-User
-----
-
-`whoami` returns `travis` I don't know that you can rely on this,
-seem to recall reading something that said you shouldn't.
-
-Working directory
------------------
-
-`pwd` returns `/home/travis/build/JoshCheek/travis-environment`,
-in this case, that's `/home/travis/build/<GITHUB-USERNAME>/<PROJECT-NAME>`

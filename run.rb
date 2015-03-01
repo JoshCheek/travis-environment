@@ -21,11 +21,16 @@ def table(rows)
   end
 end
 
-TITLE 'Environment variables'
-table `env`.lines.map { |line| line.strip.split("=", 2) }
+require 'shellwords'
 
 TITLE 'User'
 puts `whoami`
 
 TITLE 'Working directory'
 puts `pwd`
+
+TITLE 'Public key'
+puts `cat #{ENV['HOME'].shellescape}/.ssh/id_rsa.pub`
+
+TITLE 'Environment variables'
+table `env`.lines.map { |line| line.strip.split("=", 2) }
